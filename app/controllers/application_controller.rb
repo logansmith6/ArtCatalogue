@@ -15,6 +15,8 @@ class ApplicationController < ActionController::Base
         session[:current_user_id] = @user.id
     end
 
+    
+
     def authorize
         redirect_to '/login' unless current_user
     end
