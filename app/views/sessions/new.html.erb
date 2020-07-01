@@ -1,5 +1,7 @@
 <h1> Login to Art Catalogue </h1>
-
+    <% if flash[:notice]%>
+    <h2> <%= flash[:notice] %>%
+    <% end %>
 
 
 
@@ -13,5 +15,5 @@
 
 
 
-    <%= submit_tag "Sign up"%>
+    <%= submit_tag "Login"%>
 <% end %>
