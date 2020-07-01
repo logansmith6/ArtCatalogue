@@ -1,9 +1,15 @@
 class ApplicationController < ActionController::Base
+    
     before_action :current_user
+    
 
     def home 
         
+        
     end 
+
+
+    private 
 
     def current_user
         if session[:current_user_id]
