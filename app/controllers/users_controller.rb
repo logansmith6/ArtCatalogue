@@ -9,13 +9,21 @@ class UsersController < ApplicationController
 
     # POST /users
     def create
-        @user = User.new 
-        @user.email = params[:email]
-        @user.password_digest = params[:password_digest]
-        @user.save
-
-        redirect_to "/login"
+        user = User.new(user_params)
+        
+        if user.save
+            redirect_to '/login'
+        else
+            redirect_to '/signup'
+        end 
        
     end
+
+    private
+
+
+    def user_params
+        params.require(:user).permit(:email, :password, :password_confirmation)
+    end 
 
 end 

@@ -3,17 +3,17 @@
 
 
 
-<%= form_tag("/users") do %>
+<%= form_for :user, url: '/users' do |t|%>
     <%= label_tag "Email:" %>
-    <%= text_field_tag :email %>
+    <%= t.text_field :email %>
     <br>
     <%= label_tag "Password:" %>
-    <%= password_field_tag :password %>
+    <%= t.password_field :password %>
     <br>
 
     <%= label_tag "Password Confirmation:" %>
-    <%= password_field_tag :password %>
+    <%= t.password_field :password_confirmation %>
 
 
-    <%= submit_tag "Sign up"%>
+    <%= t.submit "Sign up"%>
 <% end %>
