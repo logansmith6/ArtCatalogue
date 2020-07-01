@@ -27,6 +27,8 @@ gem 'bcrypt'
 
 gem 'bootstrap-sass', '~> 3.4.1'
 
+gem 'activestorage'
+
 
 
 # Use Redis adapter to run Action Cable in production

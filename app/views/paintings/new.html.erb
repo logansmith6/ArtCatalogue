@@ -1,0 +1,19 @@
+<h1> Post a New Painting </h1>
+
+
+
+
+<%= form_for :painting, url: '/paintings' do |t|%>
+    <%= label_tag "Title:" %>
+    <%= t.text_field :title %>
+    <br>
+    <%= label_tag "Rating:" %>
+    <%= t.text_field :rating %>
+    <br>
+
+    <%= label_tag "Upload Image" %>
+    <%= t.file_field :image %>
+
+
+    <%= t.submit "Sign up"%>
+<% end %>

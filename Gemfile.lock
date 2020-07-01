@@ -233,6 +233,7 @@ PLATFORMS
   x86-mswin32
 
 DEPENDENCIES
+  activestorage
   bcrypt
   bootsnap (>= 1.4.2)
   bootstrap-sass (~> 3.4.1)

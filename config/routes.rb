@@ -8,6 +8,8 @@ Rails.application.routes.draw do
   post '/sessions', to: 'sessions#create'
   get '/logout', to: 'sessions#destroy'
 
+  resources :paintings
+
   root 'application#home'
 
 

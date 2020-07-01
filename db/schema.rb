@@ -25,16 +25,16 @@ ActiveRecord::Schema.define(version: 2020_07_01_031923) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "artworks", force: :cascade do |t|
-    t.string "title"
-    t.integer "rating"
+  create_table "museums", force: :cascade do |t|
+    t.string "name"
+    t.string "location"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "museums", force: :cascade do |t|
-    t.string "name"
-    t.string "location"
+  create_table "paintings", force: :cascade do |t|
+    t.string "title"
+    t.integer "rating"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

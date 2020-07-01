@@ -1,8 +1,9 @@
 class CreatePaintings < ActiveRecord::Migration[6.0]
   def change
-    create_table :artworks do |t|
+    create_table :paintings do |t|
       t.string :title
       t.integer :rating
+      
 
       t.timestamps
     end
