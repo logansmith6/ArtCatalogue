@@ -1,10 +1,11 @@
 class PaintingsController < ApplicationController
 
     def index
-        @paintings = Paintings.all
+        @paintings = Painting.all
     end 
 
     def show
+        @painting = Painting.find_by_title(params[:title])
     end
 
     def new
@@ -19,11 +20,11 @@ class PaintingsController < ApplicationController
         
         respond_to do |format|
             if @painting.save
-                format.html {redirect_to @painting, notice: 'Painting was successfully added.'}
-                format.json {render :show, status: :created, location: @painting}
+                redirect_to @painting, notice: 'Painting was successfully added.'
+                render :show
             else
-                format.html {render :new}
-                format.json {render json: @painting.errors, status: :unrocessable_entity}
+               render :new
+                render json: @painting.errors, status: :unrocessable_entity
             end
         end
     end
