@@ -17,3 +17,10 @@ GET /paintings/new
 
 POST /paintings
     save new painting to the database
+
+GET /paintings
+    show all painting posts
+
+GET /paintings/:id
+    show specific painting post
+
