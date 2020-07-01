@@ -2,7 +2,7 @@ class ApplicationController < ActionController::Base
     before_action :current_user
 
     def home 
-        @magic = "Suprise"
+        
     end 
 
     def current_user
@@ -10,7 +10,10 @@ class ApplicationController < ActionController::Base
             @current_user = User.find(session[:current_user_id])
         end
     end 
-    helper_method :current_user 
+    
+    def login(user)
+        session[:current_user_id] = @user.id
+    end
 
     def authorize
         redirect_to '/login' unless current_user
