@@ -16,7 +16,8 @@ class PaintingsController < ApplicationController
     end 
 
     def create
-        @painting = Painting.new(painting_params)
+        artist = Artist.find_or_create_by(name: painting_params[:artist_name])
+        @painting = artist.paintings.build(painting_params)
         
         #respond_to do |format|
             if @painting.save
