@@ -1,0 +1,23 @@
+<p>
+  <strong>Title:</strong>
+  <%= @painting.title %>
+</p>
+<br>
+
+<p>
+    Artist: 
+    <%= @painting.artist %>
+</p>
+<br>
+
+<p>
+  Rating:
+  <%= @painting.rating %>
+</p>
+  <br>
+
+<div style="width:400px; height:auto">
+<%= link_to image_tag(@painting.image, style:'width:100%'), paintings_path%>
+</div>
+
+</p>

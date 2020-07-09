@@ -1,6 +1,8 @@
 class PaintingsController < ApplicationController
 
-    before_action :authorize
+    
+    skip_before_action :verified_user, only: [:new, :create]
+    
 
 
     def index
@@ -8,7 +10,7 @@ class PaintingsController < ApplicationController
     end 
 
     def show
-        @painting = Painting.find_by(params[:id])
+       
     end
 
     def new
@@ -21,19 +23,19 @@ class PaintingsController < ApplicationController
     def create
         
         
-        check_artist = Artist.find_or_create_by(name: painting_params[:artist_name])
-        @painting = check_artist.paintings.build(painting_params)
         @painting = Painting.new(painting_params)
         
             if @painting.save
-                redirect_to :logout  
+                render :show  
             else
-                raise "no"
+                
                render :new
             end
     end
 
     private
+
+    
 
     def painting_params
         params.require(:painting).permit(:title, :rating, :image, :artist_name)

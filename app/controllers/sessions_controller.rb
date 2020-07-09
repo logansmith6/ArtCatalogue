@@ -1,15 +1,16 @@
 class SessionsController < ApplicationController 
 
+        skip_before_action :verified_user, only: [:new, :create]
     def new
+        @user = User.new
     end
 
     def create
         @user = User.find_by(email: params[:email])
         
         if @user && @user.authenticate(params[:password])
-            login(@user)
-            flash[:success] = 'You are now signed in.'
-            redirect_to '/'
+            session[:user_id] = @user.id
+            redirect_to '/paintings'
         else
             flash[:warning] = 'Invalid Username or Password'
             redirect_to '/login'
@@ -17,6 +18,7 @@ class SessionsController < ApplicationController
     end
 
     def destroy
+        
         reset_session
         
         

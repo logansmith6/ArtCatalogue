@@ -1,18 +1,17 @@
 class UsersController < ApplicationController
 
+    skip_before_action :verified_user, only: [:new, :create]
     # GET /signup
     def new
-        if session[:current_user_id]
-            redirect_to "/", :notice => "Already logged in."
-        end
+        @user = User.new
     end 
 
     # POST /users
     def create
-        user = User.new(user_params)
+       
         
-        if user.save
-            redirect_to '/login'
+        if @user = User.create(user_params)
+            session[:user_id] = @user.id
         else
             redirect_to '/signup'
         end 

@@ -1,25 +1,2 @@
 <h1> Post a New Painting </h1>
-
-
-
-
-<%= form_for @painting do |t|%>
-    <%= label_tag "Title:" %>
-    <%= t.text_field :title %>
-    <br>
-
-    <%= label_tag "Artist:"%>
-    <%= t.text_field :artist_name%>
-    <br>
-
-    <%= label_tag "Rating:" %>
-    <%= t.text_field :rating %>
-    <br>
-
-    <%= label_tag "Upload Image" %>
-    <%= t.file_field :image %>
-    <br>
-
-
-    <%= t.submit "Submit"%>
-<% end %>
+<%= render 'form' %>

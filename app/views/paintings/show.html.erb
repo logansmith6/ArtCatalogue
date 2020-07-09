@@ -1,11 +1,1 @@
-<p>
-  <strong>Title:</strong>
-  <%= @painting.title %>
-</p>
-<div style="width:400px; height:auto">
-<%= link_to image_tag(@painting.image, style:'width:100%'), paintings_path%>
-</div>
-<p>
-  <strong>Rating:</strong>
-  <%= @painting.rating %>
-</p>
+<%= render 'painting' %>

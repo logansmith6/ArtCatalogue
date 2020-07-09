@@ -1,25 +1,29 @@
-<%= form_for @painting do |t|%>
-<p>
-   <%= t.label :title%>
-   <%= t.text_field :title%>
-</p>
 
-<p>
-   <%= t.label :artist_name%>
-   <%= t.text_field :artist_name%>
-</p>
+ <%= form_with(model: @painting, local: true) do |form|%>
 
-<p>
-   <%= t.label :rating%>
-   <%= t.text_field :rating%>
-</p>
+   <div class="field">
+     <%= form.label :title%>
+     <%= form.text_field :title%>
+   </div>
 
-<p>
-   <%= t.label :image%>
-   <%= t.file_field :image%>
-</p>
+   <div class="field">
+     <%= form.label :artist_name%>
+     <%= form.text_field :artist_name%>
+   </div>
 
-<%= t.submit %>
+   <div class="field">
+     <%= form.label :rating%>
+     <%= form.text_field :rating%>
+   </div>
 
-<% end %>
+   <div class="field">
+     <%= form.label :image%>
+     <%= form.file_field :image%>
+   </div>
 
+
+    <div class="actions">
+     <%= form.submit%>
+   </div>
+
+   <% end %>
