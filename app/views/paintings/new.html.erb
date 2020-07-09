@@ -7,12 +7,18 @@
     <%= label_tag "Title:" %>
     <%= t.text_field :title %>
     <br>
+
+    <%= label_tag "Artist:"%>
+    <%= t.text_field :artist%>
+    <br>
+
     <%= label_tag "Rating:" %>
     <%= t.text_field :rating %>
     <br>
 
     <%= label_tag "Upload Image" %>
     <%= t.file_field :image %>
+    <br>
 
 
     <%= t.submit "Submit"%>

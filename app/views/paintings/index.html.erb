@@ -1,0 +1,10 @@
+<h1> Paintings </h1>
+
+
+<%= @paintings.each do |painting| %>
+    
+    Title: <%= link_to painting.title, painting_path(painting) %>
+    
+        <br>
+    <% end %>
+
