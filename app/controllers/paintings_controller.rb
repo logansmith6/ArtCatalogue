@@ -1,5 +1,7 @@
 class PaintingsController < ApplicationController
 
+    before_action :authorize
+
     def index
         @paintings = Painting.all
     end 
