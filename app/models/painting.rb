@@ -4,5 +4,5 @@ class Painting < ApplicationRecord
     belongs_to :artist
     belongs_to :museum
 
-    
+    accepts_nested_attributes_for :artist
 end
