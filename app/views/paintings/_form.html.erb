@@ -1,0 +1,25 @@
+<%= form_for @painting do |t|%>
+<p>
+   <%= t.label :title%>
+   <%= t.text_field :title%>
+</p>
+
+<p>
+   <%= t.label :artist_name%>
+   <%= t.text_field :artist_name%>
+</p>
+
+<p>
+   <%= t.label :rating%>
+   <%= t.text_field :rating%>
+</p>
+
+<p>
+   <%= t.label :image%>
+   <%= t.file_field :image%>
+</p>
+
+<%= t.submit %>
+
+<% end %>
+
