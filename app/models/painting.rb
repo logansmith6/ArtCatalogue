@@ -3,4 +3,6 @@ class Painting < ApplicationRecord
     belongs_to :user
     belongs_to :artist
     belongs_to :museum
+
+    
 end
