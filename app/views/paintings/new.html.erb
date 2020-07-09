@@ -3,7 +3,7 @@
 
 
 
-<%= form_for :painting, url: '/paintings' do |t|%>
+<%= form_for @painting do |t|%>
     <%= label_tag "Title:" %>
     <%= t.text_field :title %>
     <br>

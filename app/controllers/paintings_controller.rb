@@ -2,6 +2,7 @@ class PaintingsController < ApplicationController
 
     before_action :authorize
 
+
     def index
         @paintings = Painting.all
     end 
@@ -18,18 +19,18 @@ class PaintingsController < ApplicationController
     end 
 
     def create
-        artist = Artist.find_or_create_by(name: painting_params[:artist_name])
-        @painting = artist.paintings.build(painting_params)
         
-        #respond_to do |format|
+        
+        check_artist = Artist.find_or_create_by(name: painting_params[:artist_name])
+        @painting = check_artist.paintings.build(painting_params)
+        @painting = Painting.new(painting_params)
+        
             if @painting.save
-                redirect_to @painting, notice: 'Painting was successfully added.'
-                render :show
+                redirect_to :logout  
             else
+                raise "no"
                render :new
-                
             end
-        #end
     end
 
     private
