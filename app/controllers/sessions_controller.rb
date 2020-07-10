@@ -1,6 +1,7 @@
 class SessionsController < ApplicationController 
 
     def new
+        @user = User.new
     end
 
     def create
@@ -14,11 +15,27 @@ class SessionsController < ApplicationController
             flash[:warning] = 'Invalid Username or Password'
             redirect_to '/login'
         end 
+    end 
+
+    def create_facebook
+        @user = User.find_or_create_by(uid: auth['uid']) do |u|
+            #u.name = auth['info']['name']
+            u.email = auth['info']['email']
+            #u.image = auth['info']['image']
+        end 
+        login(@user)
+        redirect_to '/paintings'
     end
 
     def destroy
         reset_session
         redirect_to '/login'
+    end
+
+    private
+
+    def auth
+        request.env['omniauth.auth']
     end
 
     
