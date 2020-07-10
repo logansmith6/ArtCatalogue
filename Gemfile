@@ -29,6 +29,12 @@ gem 'bootstrap-sass', '~> 3.4.1'
 
 gem 'activestorage'
 
+gem 'omniauth'
+
+gem 'omniauth-facebook'
+
+gem 'dotenv-rails'
+
 
 
 # Use Redis adapter to run Action Cable in production
