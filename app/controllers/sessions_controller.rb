@@ -8,8 +8,8 @@ class SessionsController < ApplicationController
         user = User.find_by(email: params[:email])
         
         if user && user.authenticate(params[:password])
+            
             session[:user_id] = user.id
-            flash[:success] = 'You are now signed in.'
             redirect_to '/posts'
         else
             flash[:notice] = 'Invalid Email/ Password Combination. Please try again!'
