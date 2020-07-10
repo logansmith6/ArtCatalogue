@@ -5,13 +5,11 @@ class PostsController < ApplicationController
 
 
     def index
-            @posts = Post.all
+        @posts = Post.all
     end 
 
     def show
-        
-            @post = Post.find_by(params[:id])
-       
+         @post = Post.find_by(params[:id])
     end
 
     def new
@@ -22,7 +20,6 @@ class PostsController < ApplicationController
     end 
 
     def create
-        
         
         @post = current_user.posts.build(post_params)
         

@@ -2,12 +2,10 @@
 <h1> Members of the Art Catalogue Community </h1>
 
 
-<% @posts.each do |post| %>
+<% @users.each do |user| %>
     
-    Title: <%= link_to post.title, post_path(post) %>
-    <div style="width:200px; height:auto">
-    <%= image_tag(post.image, style: 'width:100%')%>
-    </div>
+    Title: <%= link_to user.email, user_path(user) %>
+    
     <br>
         
     <% end %>
