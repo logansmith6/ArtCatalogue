@@ -7,7 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 bob = User.create(email: "bob", password: "george")
-bob.paintings.build(title: 'test', rating: 5).image.attach(io: File.open('app/assets/images/unnamed.png'), filename: 'unnamed.png', content_type: 'image/png')
+bob.painting_post.build(title: 'test', rating: 5).image.attach(io: File.open('app/assets/images/unnamed.png'), filename: 'unnamed.png', content_type: 'image/png')
 #pins.skip_confirmation!
 
 

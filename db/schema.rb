@@ -59,7 +59,7 @@ ActiveRecord::Schema.define(version: 2020_07_09_222205) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "paintings", force: :cascade do |t|
+  create_table "posts", force: :cascade do |t|
     t.string "title"
     t.integer "rating"
     t.datetime "created_at", precision: 6, null: false

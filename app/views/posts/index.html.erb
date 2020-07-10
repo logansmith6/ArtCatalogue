@@ -1,0 +1,13 @@
+<h1> Paintings </h1>
+
+
+<%= @posts.each do |post| %>
+    
+    Title: <%= link_to post.title, posts_path(post) %>
+    <div style="width:200px; height:auto">
+    <%= image_tag(post.image, style: 'width:100%')%>
+    </div>
+    <br>
+        <br>
+    <% end %>
+

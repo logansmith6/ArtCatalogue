@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   get '/logout', to: 'sessions#destroy'
   get '/auth/facebook/callback' => 'sessions#create_facebook'
 
-  resources :paintings
+  resources :posts
   resources :artists
 
   root 'application#home'

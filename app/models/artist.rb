@@ -1,6 +1,6 @@
 class Artist < ApplicationRecord
-    has_many :paintings
-    has_many :museums, through: :paintings
+    has_many :posts
+    has_many :museums, through: :painting_posts
 
     
 end

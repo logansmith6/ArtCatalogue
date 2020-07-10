@@ -10,7 +10,7 @@ class SessionsController < ApplicationController
         if @user && @user.authenticate(params[:password])
             login(@user)
             flash[:success] = 'You are now signed in.'
-            redirect_to '/paintings'
+            redirect_to '/posts'
         else
             flash[:warning] = 'Invalid Username or Password'
             redirect_to '/login'
@@ -24,7 +24,7 @@ class SessionsController < ApplicationController
             #u.image = auth['info']['image']
         end 
         login(@user)
-        redirect_to '/paintings'
+        redirect_to '/posts'
     end
 
     def destroy

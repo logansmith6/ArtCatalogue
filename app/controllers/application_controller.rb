@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
     
-    before_action :current_user
+    #before_action :current_user
     
 
     def home 
@@ -20,8 +20,6 @@ class ApplicationController < ActionController::Base
     def login(user)
         session[:current_user_id] = @user.id
     end
-
-    
 
     def authorize
         redirect_to '/login' unless current_user

@@ -1,6 +1,6 @@
 <p>
   <strong>Title:</strong>
-  <%= @painting.title %>
+  <%= @post.title %>
 </p>
 <br>
 
@@ -8,12 +8,12 @@
 
 <p>
   Rating:
-  <%= @painting.rating %>
+  <%= @post.rating %>
 </p>
   <br>
 
 <div style="width:400px; height:auto">
-<%= link_to image_tag(@painting.image, style:'width:100%'), paintings_path%>
+<%= link_to image_tag(@post.image, style:'width:100%'), posts_path%>
 </div>
 
 </p>

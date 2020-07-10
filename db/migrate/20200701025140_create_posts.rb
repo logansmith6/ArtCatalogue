@@ -1,6 +1,6 @@
-class CreatePaintings < ActiveRecord::Migration[6.0]
+class CreatePosts < ActiveRecord::Migration[6.0]
   def change
-    create_table :paintings do |t|
+    create_table :posts do |t|
       t.string :title
       t.integer :rating
       
