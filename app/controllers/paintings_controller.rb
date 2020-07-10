@@ -1,11 +1,11 @@
 class PaintingsController < ApplicationController
 
-    helper_method :current_user
-    skip_before_action :verified_user, only: [:new, :create]
+    
     
 
 
     def index
+        
         @paintings = Painting.all
     end 
 
