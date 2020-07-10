@@ -1,16 +1,16 @@
 class PostsController < ApplicationController
 
-    
+    before_action  :if_logged_in
     
 
 
     def index
-        
-        @posts = Post.all
+            @posts = Post.all
     end 
 
     def show
-    @post = Post.find_by_id(params[:id])
+        
+            @post = Post.find_by(params[:id])
        
     end
 
@@ -23,9 +23,9 @@ class PostsController < ApplicationController
 
     def create
         
-        user = current_user
-        @post = user.posts.new(post_params)
-        @post.save!
+        
+        @post = current_user.posts.build(post_params)
+        
         render :show
             
     end
@@ -35,6 +35,6 @@ class PostsController < ApplicationController
     
 
     def post_params
-        params.require(:post).permit(:title, :rating, :image, :user_id)
+        params.require(:post).permit(:title, :rating, :image, :artist_name, :user_id)
     end     
 end

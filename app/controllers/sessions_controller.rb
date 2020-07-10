@@ -1,14 +1,14 @@
 class SessionsController < ApplicationController 
     
     def new
-        @user = User.new
+        
     end
 
     def create
-        @user = User.find_by(email: params[:email])
+        user = User.find_by(email: params[:email])
         
-        if @user && @user.authenticate(params[:password])
-            login(@user)
+        if user && user.authenticate(params[:password])
+            session[:user_id] = user.id
             flash[:success] = 'You are now signed in.'
             redirect_to '/posts'
         else
@@ -28,11 +28,13 @@ class SessionsController < ApplicationController
     end
 
     def destroy
-        reset_session
+        session.delete :user_id
         redirect_to '/login'
     end
 
     private
+    
+    
 
     def auth
         request.env['omniauth.auth']
