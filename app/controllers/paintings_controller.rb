@@ -10,7 +10,7 @@ class PaintingsController < ApplicationController
     end 
 
     def show
-    
+    @painting = Painting.find_by(id: params[:id])
        
     end
 
