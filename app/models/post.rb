@@ -7,13 +7,7 @@ class Post < ApplicationRecord
     #has_many :comments
 
 
-    private 
-
-    def artist_name
-        @artist = Artist.find_or_create_by(name: params[:artist_name])
-    end
-
-
+     
    
 
     
