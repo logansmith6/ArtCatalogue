@@ -10,7 +10,7 @@ class PaintingsController < ApplicationController
     end 
 
     def show
-        @painting 
+    
        
     end
 
@@ -26,7 +26,7 @@ class PaintingsController < ApplicationController
         user = current_user
         @painting = user.paintings.new(painting_params)
         @painting.save!
-        redirect_to @painting
+        render :show
             
     end
 
