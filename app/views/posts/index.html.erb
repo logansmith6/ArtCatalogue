@@ -1,7 +1,7 @@
 <h1> Paintings </h1>
 
 
-<%= @posts.each do |post| %>
+<% @posts.each do |post| %>
     
     Title: <%= link_to post.title, post_path(post) %>
     <div style="width:200px; height:auto">
