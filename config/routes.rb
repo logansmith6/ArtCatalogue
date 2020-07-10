@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
-
+  get '/', to: 'posts#index'
   get '/signup', to: 'users#new'
   post '/users', to: 'users#create'
 
@@ -14,7 +14,7 @@ Rails.application.routes.draw do
   resources :users
   
 
-  root 'application#home'
+  
 
 
 end

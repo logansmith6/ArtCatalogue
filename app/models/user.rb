@@ -5,5 +5,5 @@ class User < ApplicationRecord
    validates :email, format: { with: URI::MailTo::EMAIL_REGEXP } 
 
    has_many :posts
-   has_many :comments
+   #Shas_many :comments
 end

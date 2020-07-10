@@ -1,4 +1,4 @@
 class ArtworkEra < ApplicationRecord
-    belongs_to :artist
-    belongs_to :post
+    #belongs_to :artist
+    #belongs_to :post
 end

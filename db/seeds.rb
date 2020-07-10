@@ -6,9 +6,9 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-bob = User.create(email: "bob", password: "george")
-bob.painting_post.build(title: 'test', rating: 5).image.attach(io: File.open('app/assets/images/unnamed.png'), filename: 'unnamed.png', content_type: 'image/png')
-#pins.skip_confirmation!
+bob = User.create(full_name: 'bob', email: 'bob@gmail.com', password: 'pass')
+bob.posts.build(title: 'test', rating: 5).image.attach(io: File.open('app/assets/images/unnamed.png'), filename: 'unnamed.png', content_type: 'image/png', artist_name: 'leo')
+
 
 
 #painting1

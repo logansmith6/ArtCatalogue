@@ -25,7 +25,7 @@ class PostsController < ApplicationController
     def create
         
         @post = current_user.posts.build(post_params)
-        raise @post.artist_name.inspect
+        #raise @post.inspect
         render :show
             
     end
@@ -35,6 +35,6 @@ class PostsController < ApplicationController
     
 
     def post_params
-        params.require(:post).permit(:title, :rating, :image, :artist_name, :user_id)
+        params.require(:post).permit(:title, :rating, :image, :user_id, :artist_name)
     end     
 end
