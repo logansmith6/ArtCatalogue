@@ -12,7 +12,7 @@ class SessionsController < ApplicationController
             flash[:success] = 'You are now signed in.'
             redirect_to '/posts'
         else
-            flash[:warning] = 'Invalid Username or Password'
+            flash[:notice] = 'Invalid Email/ Password Combination. Please try again!'
             redirect_to '/login'
         end 
     end 
