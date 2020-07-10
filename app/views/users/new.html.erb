@@ -7,6 +7,9 @@
 
 
 <%= form_for :user, url: '/users' do |t|%>
+    <%= label_tag "Name (First/Last):" %>
+    <%= t.text_field :full_name %>
+    <br>
     <%= label_tag "Email:" %>
     <%= t.text_field :email %>
     <br>
