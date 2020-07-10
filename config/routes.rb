@@ -11,6 +11,8 @@ Rails.application.routes.draw do
 
   resources :posts
   resources :artists
+  resources :users
+  
 
   root 'application#home'
 

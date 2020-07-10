@@ -6,11 +6,11 @@ class PostsController < ApplicationController
 
     def index
         
-        @posts = Posts.all
+        @posts = Post.all
     end 
 
     def show
-    @painting_post = Post.find_by(id: params[:id])
+    @post = Post.find_by_id(params[:id])
        
     end
 
@@ -24,7 +24,7 @@ class PostsController < ApplicationController
     def create
         
         user = current_user
-        @post = user.post.new(psot_params)
+        @post = user.posts.new(post_params)
         @post.save!
         render :show
             

@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-
+    
  # GET /signup
  def new
     if session[:current_user_id]
