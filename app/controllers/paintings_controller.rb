@@ -1,6 +1,6 @@
 class PaintingsController < ApplicationController
 
-    
+    helper_method :current_user
     skip_before_action :verified_user, only: [:new, :create]
     
 
@@ -10,6 +10,7 @@ class PaintingsController < ApplicationController
     end 
 
     def show
+        @painting 
        
     end
 
@@ -22,15 +23,11 @@ class PaintingsController < ApplicationController
 
     def create
         
-        
-        @painting = Painting.new(painting_params)
-        
-            if @painting.save
-                render :show  
-            else
-                
-               render :new
-            end
+        user = current_user
+        @painting = user.paintings.new(painting_params)
+        @painting.save!
+        redirect_to @painting
+            
     end
 
     private
@@ -38,6 +35,6 @@ class PaintingsController < ApplicationController
     
 
     def painting_params
-        params.require(:painting).permit(:title, :rating, :image, :artist_name)
+        params.require(:painting).permit(:title, :rating, :image, :user_id)
     end     
 end
