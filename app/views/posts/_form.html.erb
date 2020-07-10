@@ -1,11 +1,13 @@
+
 <h1> Post a New Painting </h1>
  <%= form_with(model: @post, local: true) do |form|%>
 
+   
    <div class="field">
      <%= form.label :title%>
      <%= form.text_field :title%>
    </div>
-
+   
    <div class="field">
      <%= form.label :artist_name%>
      <%= form.text_field :artist_name%>
@@ -16,11 +18,13 @@
      <%= form.label :rating%>
      <%= form.text_field :rating%>
    </div>
+   <br>
 
    <div class="field">
-     <%= form.label :image%>
-     <%= form.file_field :image%>
+     <%= form.label :image%>  <%= form.file_field :image%>
+     
    </div>
+   <br>
 
 
 
@@ -29,3 +33,5 @@
    </div>
 
    <% end %>
+
+   

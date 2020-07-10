@@ -31,7 +31,7 @@ gem 'activestorage'
 
 gem 'omniauth'
 
-gem 'omniauth-facebook'
+gem 'omniauth-google-oath2'
 
 gem 'dotenv-rails'
 

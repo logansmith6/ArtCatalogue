@@ -8,7 +8,6 @@ class SessionsController < ApplicationController
         user = User.find_by(email: params[:email])
         
         if user && user.authenticate(params[:password])
-            
             session[:user_id] = user.id
             redirect_to '/posts'
         else
@@ -17,15 +16,7 @@ class SessionsController < ApplicationController
         end 
     end 
 
-    def create_facebook
-        @user = User.find_or_create_by(uid: auth['uid']) do |u|
-            #u.name = auth['info']['name']
-            u.email = auth['info']['email']
-            #u.image = auth['info']['image']
-        end 
-        login(@user)
-        redirect_to '/posts'
-    end
+    
 
     def destroy
         session.delete :user_id
