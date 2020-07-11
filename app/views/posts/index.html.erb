@@ -1,16 +1,23 @@
 <pre>
  <a href="/posts">Browse Paintings</a>      <a href="/posts/new">Post a Painting</a>     <a href="/users">Users</a>     <a href="/logout">Logout</a>
 
-
-<h1> Paintings </h1>
+<h1>  Paintings </h1>
+<% if params[:artist_id]%>
+<h4>   by <%= Artist.find(params[:artist_id]).name%>  </h4>
+<% end %>
 
 
 <% @posts.each do |post| %>
     
-    Title: <%= link_to post.title, post_path(post) %>
-    <div style="width:200px; height:auto">
+    Title: <%=  post.title %>
+    <% if !params[:artist_id]%>
+    Author: <%= link_to post.artist.name, artist_path(post.artist)%>
+    <% end %>
+    <p class="aligncenter">
+    <div style="width:200px; height:auto; margin-left:auto; margin-right:auto">
     <%= image_tag(post.image, style: 'width:100%')%>
     </div>
+    </p>
     <br>
         
     <% end %>

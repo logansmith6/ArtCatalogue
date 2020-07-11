@@ -1,11 +1,7 @@
 <pre>
-  <strong>Artist: <%=  @artist.name %></strong>
-  <% @artist.posts.each do |painting| %>
-  Title:
-  <%= painting.title %>
-  Rating:
-  <%= painting.rating %>
-<div style="width:400px; height:auto">
-<%= link_to image_tag(painting.image, style:'width:100%'), posts_path%>
-</div>
-<% end %>
+  <h1><strong><%=@artist.name%></h1>
+  <br>
+  <h3><%=link_to 'Browse Paintings', artist_posts_path(@artist.id)%> </strong></h3>
+  </pre>
+  
+  

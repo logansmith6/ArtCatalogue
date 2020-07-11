@@ -2,9 +2,7 @@ class UsersController < ApplicationController
     
  # GET /signup
  def new
-    
-    
-end 
+ end 
 
 # POST /users
 def create

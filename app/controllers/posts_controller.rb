@@ -2,18 +2,22 @@ class PostsController < ApplicationController
 
     before_action  :if_logged_in
     helper_method :current_user
+    helper_method :most_posts
     
     
     
 
 
     def index
-        @posts = Post.all
-        
+        if params[:artist_id]
+            @posts = Artist.find(params[:artist_id]).posts
+        else 
+            @posts = Post.all
+        end 
     end 
 
     def show
-         @post = Post.find_by_id(params[:id])
+         @post = Post.find(params[:id])
          
     end
 
@@ -31,7 +35,7 @@ class PostsController < ApplicationController
         @post.artist = Artist.find_or_create_by(post_params[:artist_attributes])
         #raise @post.artist.inspect
         if @post.save
-            render :show 
+            render :show
         else
             redirect_to '/posts/new'
         end

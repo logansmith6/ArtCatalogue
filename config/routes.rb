@@ -8,10 +8,13 @@ Rails.application.routes.draw do
   post '/sessions', to: 'sessions#create'
   get '/logout', to: 'sessions#destroy'
   
-
+  resources :users
   resources :posts
   resources :artists
-  resources :users
+  resources :artists, only: [:show, :new, :create, :index] do
+    resources :posts, only: [:show, :index]
+  end
+  root 'posts#index'
   
 
   
