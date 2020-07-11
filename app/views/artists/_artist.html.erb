@@ -1,31 +1,11 @@
-<p>
-  <strong>Name:</strong>
-  <%= @artist.name %>
-</p>
-<br>
-
-
-
-<p>
+<pre>
+  <strong>Artist: <%=  @artist.name %></strong>
   <% @artist.posts.each do |painting| %>
-  
-<p>
   Title:
-  <%= @post.title %>
-</p>
-<br>
-<p>
+  <%= painting.title %>
   Rating:
-  <%= @post.rating %>
-</p>
-  <br>
-
+  <%= painting.rating %>
 <div style="width:400px; height:auto">
-<%= link_to image_tag(@post.image, style:'width:100%'), posts_path%>
+<%= link_to image_tag(painting.image, style:'width:100%'), posts_path%>
 </div>
-
-</p>
-
-
-</p>
 <% end %>
