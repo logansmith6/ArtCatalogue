@@ -1,13 +1,16 @@
 <pre>
  <a href="/posts">Browse Paintings</a>      <a href="/posts/new">Post a Painting</a>     <a href="/users">Users</a>     <a href="/logout">Logout</a>
   <h1><b><%= @post.title %></b></h1><h3> <%=@post.artist.name%>
-<p>
-
 <div style="width:300px; height:auto; margin-left:auto; margin-right:auto;">
 <%= link_to image_tag(@post.image, style:'width:100%'), post_path(@post)%>
 </div>
-<p><%= @post.likes.count %> <%= (@post.likes.count) == 1 ? 'Like' : 'Likes'%></p>
-<%= button_to 'Like', post_likes_path(@post), method: :post %>
+<%= @post.likes.count %> <%= (@post.likes.count) == 1 ? 'Like' : 'Likes'%>
+<% pre_like = @post.likes.find { |like| like.user_id == current_user.id} %>
+<% if pre_like %>
+  <%= button_to 'Unlike', post_like_path(@post, pre_like), method: :delete %>
+<% else %>
+  <%= button_to 'Like', post_likes_path(@post), method: :post %>
+<% end %>
 </pre>
 
   

@@ -16,7 +16,7 @@ Rails.application.routes.draw do
   end 
   resources :artists
   resources :artists, only: [:show, :new, :create, :index] do
-    resources :posts, only: [:show, :index] do
+    resources :posts, only: [:show, :index, :new, :create] do
       resources :likes 
     end 
   end

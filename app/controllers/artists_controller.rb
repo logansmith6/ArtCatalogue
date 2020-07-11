@@ -7,6 +7,12 @@ class ArtistsController < ApplicationController
         render template: 'posts/index'
     end
 
+    def posts_new
+        @artist = Artist.find(params[:id])
+        @post = @artist.posts.new
+        render template: 'posts/new'
+    end
+
     def post
         @artist = Artist.find(params[:id])
         @post = Post.find(params[:post_id])

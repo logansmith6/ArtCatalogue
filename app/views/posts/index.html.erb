@@ -1,10 +1,13 @@
 <pre>
  <a href="/posts">Browse Paintings</a>      <a href="/posts/new">Post a Painting</a>     <a href="/users">Users</a>     <a href="/logout">Logout</a>
 
-<h1>  Paintings </h1>
-<% if params[:artist_id]%>
-<h4>   by <%= Artist.find(params[:artist_id]).name%>  </h4>
-<% end %>
+  <h1>  Paintings </h1>
+  <% if params[:artist_id]%>
+  <h4>  <%artist = Artist.find(params[:artist_id]).name%>  </h4>
+        by <%= artist%>
+        <%= link_to 'new', new_artist_post_path(params[:artist_id]) %>
+
+  <% end %>
 
 
 <% @posts.each do |post| %>
@@ -17,10 +20,13 @@
     <div style="width:200px; height:auto; margin-left:auto; margin-right:auto">
     <%= image_tag(post.image, style: 'width:100%')%>
     </div>
-    <br>
     <%= post.likes.count %> <%= (post.likes.count) == 1 ? 'Like' : 'Likes'%>
+    <% pre_like = post.likes.find { |like| like.user_id == current_user.id} %>
+    <% if pre_like %>
+    <%= button_to 'Unlike', post_like_path(post, pre_like), method: :delete %>
+    <% else %>
     <%= button_to 'Like', post_likes_path(post), method: :post %>
-        
+    <% end %>
     <% end %>
     </pre>
 
