@@ -5,7 +5,7 @@
      <%= form.label :title%>
      <%= form.text_field :title%>
    </div>
-   <%= form.fields_for :artist, Artist.find_or_create_by(params[:name]) do |artist|%>
+   <%= form.fields_for :artist, Artist.find_or_create_by(params[:id]) do |artist|%>
    <div class="field">
       <%= artist.label :artist_name %>
       <%= artist.text_field :name%>

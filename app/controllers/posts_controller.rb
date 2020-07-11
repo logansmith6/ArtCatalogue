@@ -26,7 +26,7 @@ class PostsController < ApplicationController
     def create
         
         @post = current_user.posts.build(post_params)
-        @post.artist_name = Artist.find_or_create_by(post_params[:artist_attributes])
+        @post.artist_id = Artist.find_or_create_by(post_params[:artist_attributes][:id])
         @post.save!
         
         redirect_to @post
@@ -38,6 +38,6 @@ class PostsController < ApplicationController
     
 
     def post_params
-        params.require(:post).permit(:title, :rating, :image, :user_id, :artist_attributes => :name)
+        params.require(:post).permit(:title, :rating, :image, :user_id, :artist_attributes => [:id, :name])
     end     
 end
