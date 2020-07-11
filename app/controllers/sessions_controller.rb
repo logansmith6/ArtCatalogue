@@ -5,6 +5,22 @@ class SessionsController < ApplicationController
     end
 
     def create
+        if auth_hash = request.env["omniauth.auth"]
+            #logging in via facebook
+            oath_email = auth['info']['email']
+            oath_name = auth['info']['name']
+
+            if user = User.find_by(:email => oath_email)
+                session[:user_id] = user.id
+                redirect_to '/posts'
+            else
+                user = User.new(:email => oauth_email, :password => SecureRandom.hex) 
+                if user.save
+                    session[:user_id] = user.id
+                    redirect_to '/posts'
+                end
+            end
+        else
         user = User.find_by(email: params[:email])
         
         if user && user.authenticate(params[:password])
@@ -15,7 +31,10 @@ class SessionsController < ApplicationController
             redirect_to '/login'
             
         end 
+    end
     end 
+
+    
 
     
 
