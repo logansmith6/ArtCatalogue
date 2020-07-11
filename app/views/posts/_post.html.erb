@@ -1,15 +1,10 @@
 <pre>
-<p>
+ <a href="/posts">Browse Paintings</a>      <a href="/posts/new">Post a Painting</a>     <a href="/users">Users</a>     <a href="/logout">Logout</a>
   <h1><b><%= @post.title %></b></h1><h3> <%=@post.artist.name%>
-</p>
-<br>
 <p>
   Rating:
   <%= @post.rating %>
-</p>
 <div style="width:400px; height:auto">
 <%= link_to image_tag(@post.image, style:'width:100%'), posts_path(@post)%>
 </div>
-
-</p>
 </pre>

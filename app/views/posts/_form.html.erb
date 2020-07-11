@@ -1,44 +1,31 @@
-
+<pre>
 <h1> Post a New Painting </h1>
  <%= form_for @post, url: '/posts' do |form|%>
-
-   
    <div class="field">
      <%= form.label :title%>
      <%= form.text_field :title%>
    </div>
-   
-   
-   <%= form.fields_for :artist, Artist.new do |artist|%>
+   <%= form.fields_for :artist, Artist.find_or_create_by(params[:name]) do |artist|%>
    <div class="field">
       <%= artist.label :artist_name %>
       <%= artist.text_field :name%>
-  
      <% end %>
    </div>
-   
-   
-
-   
    <div class="field">
      <%= form.label :rating%>
      <%= form.text_field :rating%>
    </div>
    <br>
-
    <div class="field">
      <%= form.label :image%>  
      <%= form.file_field :image%>
-     
    </div>
    <br>
-
-
-
     <div class="actions">
      <%= form.submit%>
    </div>
-
    <% end %>
+   </pre>
+   
 
    
