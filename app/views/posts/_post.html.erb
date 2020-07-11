@@ -6,6 +6,8 @@
 <div style="width:300px; height:auto; margin-left:auto; margin-right:auto;">
 <%= link_to image_tag(@post.image, style:'width:100%'), post_path(@post)%>
 </div>
+<p><%= @post.likes.count %> <%= (@post.likes.count) == 1 ? 'Like' : 'Likes'%></p>
+<%= button_to 'Like', post_likes_path(@post), method: :post %>
 </pre>
 
   

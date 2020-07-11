@@ -11,10 +11,14 @@ Rails.application.routes.draw do
   get '/users/most_posts', to: 'users#most_posts'
   
   resources :users
-  resources :posts
+  resources :posts do
+    resources :likes
+  end 
   resources :artists
   resources :artists, only: [:show, :new, :create, :index] do
-    resources :posts, only: [:show, :index]
+    resources :posts, only: [:show, :index] do
+      resources :likes 
+    end 
   end
   root 'posts#index'
   
