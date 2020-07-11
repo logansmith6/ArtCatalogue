@@ -29,9 +29,11 @@ gem 'bootstrap-sass', '~> 3.4.1'
 
 gem 'activestorage'
 
+gem 'devise'
+
 gem 'omniauth'
 
-
+gem 'omniauth-facebook'
 
 gem 'dotenv-rails'
 

@@ -1,5 +1,11 @@
 class UsersController < ApplicationController
     
+def most_posts
+   
+        @users = User.joins(:posts).group('users.id').order('count(posts.id) desc').limit(1).first
+        
+    
+end
  # GET /signup
  def new
  end 

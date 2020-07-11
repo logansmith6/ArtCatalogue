@@ -10,8 +10,5 @@ class User < ApplicationRecord
 
    private
 
-   def most_posts
-      user = User.all.max_by {|user| user.posts.count}
-      
-   end 
+   
 end

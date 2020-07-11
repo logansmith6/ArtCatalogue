@@ -1,6 +1,6 @@
 <pre>
 <h1><b> <%=    @user.full_name %> </b></h1>
-<h3><b>   Posts </h3>
+<h3><b>   <%= @user.posts.count%> Posts </h3>
 
 <% if @user.posts.count == 0%>
     <b style="font-size:18px"> <%= flash.notice = "This user hasn't posted any paintings yet."%> </b>
@@ -9,10 +9,11 @@
 <% @user.posts.each do |post| %>
     
     Title: <%= link_to post.title, post_path(post) %>
-    <div style="width:200px; height:auto">
+    Artist: <%= post.artist.name%>
+    <div style="width:200px; height:auto; margin-right:auto; margin-left:auto">
     <%= image_tag(post.image, style: 'width:100%')%>
     </div>
-    <br>
+    Rating: <%= post.rating%>
         
     <% end %>
 <% end %>

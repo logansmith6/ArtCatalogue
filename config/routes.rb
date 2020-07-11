@@ -3,10 +3,12 @@ Rails.application.routes.draw do
   get '/', to: 'posts#index'
   get '/signup', to: 'users#new'
   post '/users', to: 'users#create'
+  get '/auth/facebook/callback' => 'sessions#create'
 
   get '/login', to: 'sessions#new'
   post '/sessions', to: 'sessions#create'
   get '/logout', to: 'sessions#destroy'
+  get '/users/most_posts', to: 'users#most_posts'
   
   resources :users
   resources :posts
