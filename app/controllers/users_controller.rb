@@ -2,9 +2,7 @@ class UsersController < ApplicationController
     
  # GET /signup
  def new
-    if session[:current_user_id]
-        redirect_to "/", :notice => "Already logged in."
-    end
+    
 end 
 
 # POST /users
@@ -20,7 +18,7 @@ def create
 end
 
 def show
-    @user = User.find_by(params[:user_id])
+    @user = User.find_by_id(params[:id])
 end 
 
 def index

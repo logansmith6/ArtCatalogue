@@ -5,7 +5,7 @@ class ArtistsController < ApplicationController
     end 
 
     def show
-        @artist = Artist.find_by(params[:id])
+        @artist = Artist.find_by(params[:artist_id])
     end
 
     def new
@@ -17,12 +17,12 @@ class ArtistsController < ApplicationController
 
     
     def create
-        @artist = Artist.create(artist_params)
+        @artist = Artist.find_or_create_by(artist_params)
     end
 
     private
 
     def artist_params
-        params.require(:artist).permit(:name)
+        params.require(:artist).permit(:name, :artist_id)
     end     
 end

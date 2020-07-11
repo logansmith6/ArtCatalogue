@@ -9,10 +9,14 @@
    </div>
    
    
+   <%= form.fields_for :artist, Artist.new do |artist|%>
    <div class="field">
-     <%= form.label :artist_name%>
-     <%= form.text_field :artist_name%>
+      <%= artist.label :artist_name %>
+      <%= artist.text_field :name%>
+  
+     <% end %>
    </div>
+   
    
 
    

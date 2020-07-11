@@ -11,8 +11,9 @@ class SessionsController < ApplicationController
             session[:user_id] = user.id
             redirect_to '/posts'
         else
-            flash[:notice] = 'Invalid Email/ Password Combination. Please try again!'
+            flash[:alert] = 'Invalid Email/ Password Combination. Please try again!'
             redirect_to '/login'
+            
         end 
     end 
 
