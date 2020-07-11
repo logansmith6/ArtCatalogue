@@ -3,10 +3,12 @@ class UsersController < ApplicationController
  # GET /signup
  def new
     
+    
 end 
 
 # POST /users
 def create
+
     @user = User.new(user_params)
     
     if @user.save
