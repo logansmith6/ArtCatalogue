@@ -36,7 +36,7 @@ class PostsController < ApplicationController
             
             render :show
         else
-            flash[:alert] = 'No boxes can be left empty!'
+            flash[:alert] = 'Fill in all boxes!'
             redirect_to '/posts/new'
         end  
     end

@@ -1,25 +1,8 @@
 <pre>
 <a href="/posts">Browse Paintings</a>      <a href="/posts/new">Post a Painting</a>     <a href="/users">Users</a>     <a href="/artists">Artists</a>     <a href="/logout">Logout</a>
-<% if @post.errors.any?%>
-  <div id="error_explanation">
-    <%= pluralize(@post.errors.count, "error")%>
-      prohibited this painting from being posted.
-  
-  <ul>
-  <% @article.errors.full_messages.each do |msg|%>
-      <li><%= msg%></li>
-      <% end %>
-  </ul>
-  </div>
-  <% end %>
 
 <h1> Post a New Painting </h1>
  <%= form_for @post, url: '/posts' do |form|%>
-
-  <% if @post.errors.any?%>
-    <div id="error_explanation">
-    <%end%>
- 
    <div class="field">
      <%= form.label :title%>
      <%= form.text_field :title%>
@@ -32,12 +15,15 @@
       <%artist.submit%>
      <% end %>
    </div>
-   <br>
    <div class="field">
      <%= form.label :image%>  
      <%= form.file_field :image%>
    </div>
-   <br>
+   <% if flash[:alert]%>
+    <p style="color:red">
+     <%= flash[:alert] %>
+     </p>
+    <% end %>
     <div class="actions">
      <%= form.submit%>
    </div>
