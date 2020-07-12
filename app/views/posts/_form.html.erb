@@ -1,21 +1,35 @@
 <pre>
 <a href="/posts">Browse Paintings</a>      <a href="/posts/new">Post a Painting</a>     <a href="/users">Users</a>     <a href="/artists">Artists</a>     <a href="/logout">Logout</a>
-<h1> Post a New Painting </h1>
- <%= form_for @post do |form|%>
+<% if @post.errors.any?%>
+  <div id="error_explanation">
+    <%= pluralize(@post.errors.count, "error")%>
+      prohibited this painting from being posted.
+  
+  <ul>
+  <% @article.errors.full_messages.each do |msg|%>
+      <li><%= msg%></li>
+      <% end %>
+  </ul>
+  </div>
+  <% end %>
 
-    
-    
+<h1> Post a New Painting </h1>
+ <%= form_for @post, url: '/posts' do |form|%>
+
+  <% if @post.errors.any?%>
+    <div id="error_explanation">
+    <%end%>
  
    <div class="field">
      <%= form.label :title%>
      <%= form.text_field :title%>
    </div>
-  <div class="field">
-   <%= fields_for :artist, Artist.new do |f|%>
    
-   <%= f.label :name%>
-   <%= f.text_area :name%>
-   
+   <%= form.fields_for :artist, Artist.find_or_create_by(params[:artist_attributes]) do |artist|%>
+   <div class="field">
+      <%= artist.label :name %>
+      <%= artist.text_field :name%>
+      <%artist.submit%>
      <% end %>
    </div>
    <br>
