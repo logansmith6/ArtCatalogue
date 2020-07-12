@@ -1,5 +1,5 @@
 <pre>
- <a href="/posts">Browse Paintings</a>      <a href="/posts/new">Post a Painting</a>     <a href="/users">Users</a>     <a href="/logout">Logout</a>
+ <a href="/posts">Browse Paintings</a>      <a href="/posts/new">Post a Painting</a>     <a href="/users">Users</a>     <a href="/artists">Artists</a>     <a href="/logout">Logout</a>
   <h1><b><%= @post.title %></b></h1><h3> <%=@post.artist.name%>
 <div style="width:300px; height:auto; margin-left:auto; margin-right:auto;">
 <%= link_to image_tag(@post.image, style:'width:100%'), post_path(@post)%>

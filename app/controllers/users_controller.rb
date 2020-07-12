@@ -1,8 +1,8 @@
 class UsersController < ApplicationController
     
 def most_posts
-   
-        @users = User.joins(:posts).group('users.id').order('count(posts.id) desc').limit(1).first
+        @user = User.all.max_by {|user| user.posts.count}
+        render template: 'users/show'
         
     
 end

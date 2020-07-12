@@ -8,13 +8,22 @@ Rails.application.routes.draw do
   get '/login', to: 'sessions#new'
   post '/sessions', to: 'sessions#create'
   get '/logout', to: 'sessions#destroy'
-  get '/users/most_posts', to: 'users#most_posts'
+  #get '/users/most_posts', to: 'users#show'
   
-  resources :users
+  #resources :users 
+  resources :users, only: [:show, :new, :create, :index] do
+    resources :posts, only: [:show, :index, :new, :create] do
+      resources :likes 
+    end 
+    collection do
+      get :most_posts
+    end 
+  end
+
   resources :posts do
     resources :likes
   end 
-  resources :artists
+  #resources :artists
   resources :artists, only: [:show, :new, :create, :index] do
     resources :posts, only: [:show, :index, :new, :create] do
       resources :likes 
