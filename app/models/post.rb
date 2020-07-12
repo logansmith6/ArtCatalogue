@@ -9,7 +9,7 @@ class Post < ApplicationRecord
     has_many :likes, dependent: :destroy
     #belongs_to :museum
     #belongs_to :artwork_era
-    #has_many :comments
+    has_many :comments
 
 
      
