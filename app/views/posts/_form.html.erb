@@ -2,6 +2,11 @@
 <a href="/posts">Browse Paintings</a>      <a href="/posts/new">Post a Painting</a>     <a href="/users">Users</a>     <a href="/artists">Artists</a>     <a href="/logout">Logout</a>
 <h1> Post a New Painting </h1>
  <%= form_for @post, url: '/posts' do |form|%>
+
+  <% if @post.errors.any?%>
+    <div id="error_explanation">
+    <%end%>
+ 
    <div class="field">
      <%= form.label :title%>
      <%= form.text_field :title%>
@@ -9,8 +14,9 @@
    
    <%= form.fields_for :artist, Artist.find_or_create_by(params[:artist_attributes]) do |artist|%>
    <div class="field">
-      <%= artist.label :artist_name %>
+      <%= artist.label :name %>
       <%= artist.text_field :name%>
+      <%artist.submit%>
      <% end %>
    </div>
    <br>

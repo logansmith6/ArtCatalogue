@@ -1,7 +1,8 @@
 class UsersController < ApplicationController
     
 def most_posts
-        @user = User.all.find.max_by {|user| user.posts.count}
+        
+        @user =  User.all.max_by {|user| user.posts.count}
         
         render template: 'users/show'
         
@@ -20,6 +21,7 @@ def create
         redirect_to '/login'
     else
         redirect_to '/signup'
+        flash[:error] = "invalid login info"
     end 
    
 end
@@ -38,7 +40,7 @@ private
 
 
 def user_params
-    params.require(:user).permit(:full_name, :email, :password, :user_id)
+    params.require(:user).permit(:full_name, :email, :password, :id)
 end 
 
 end 

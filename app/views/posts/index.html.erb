@@ -5,7 +5,7 @@
   <% if params[:artist_id]%>
   <h4>  <%artist = Artist.find(params[:artist_id]).name%>  </h4>
         by <%= artist%>
-        <%= link_to 'new', new_artist_post_path(params[:artist_id]) %>
+        <%= link_to 'Post new art for this artist', new_artist_post_path(params[:artist_id]) %>
 
   <% end %>
 

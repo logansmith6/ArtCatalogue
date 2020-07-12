@@ -30,10 +30,13 @@ class PostsController < ApplicationController
         @post = Post.new(post_params)
         @post.user = User.find(current_user.id)
         @post.artist = Artist.find_or_create_by(post_params[:artist_attributes])
+        
         #raise @post.artist.inspect
         if @post.save
+            
             render :show
         else
+            flash[:alert] = 'No boxes can be left empty!'
             redirect_to '/posts/new'
         end  
     end

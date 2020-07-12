@@ -9,9 +9,9 @@ Rails.application.routes.draw do
   post '/sessions', to: 'sessions#create'
   get '/logout', to: 'sessions#destroy'
   
-  #get '/users/most_posts', to: 'users#show'
   
-  #resources :users 
+  
+  
   resources :users, only: [:show, :new, :create, :index] do
     resources :posts, only: [:show, :index, :new, :create, :destroy] do
       resources :likes 
