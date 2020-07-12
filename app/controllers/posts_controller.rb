@@ -27,11 +27,10 @@ class PostsController < ApplicationController
 
     def create
         
-        @post = Post.new(post_params)
+        @post = Post.new
         @post.user = User.find(current_user.id)
-        @post.artist = Artist.find_or_create_by(post_params[:artist_attributes])
+        #@post.artist = Artist.find_by(params[:name])
         
-        #raise @post.artist.inspect
         if @post.save
             
             render :show
@@ -57,6 +56,6 @@ class PostsController < ApplicationController
     
 
     def post_params
-        params.require(:post).permit(:title, :image, :user_id, :artist_id, :artist_attributes => [:name])
+        params.require(:post).permit(:title, :image, :user_id, :artist_id, :artist_attributes => [ :name])
     end     
 end

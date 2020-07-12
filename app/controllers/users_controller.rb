@@ -1,12 +1,8 @@
 class UsersController < ApplicationController
     
-def most_posts
-        
-        @user =  User.all.max_by {|user| user.posts.count}
-        
-        render template: 'users/show'
-        
-    
+def most_posts   
+    @user =  User.all.max_by {|user| user.posts.count}
+    render template: 'users/show'
 end
  # GET /signup
  def new

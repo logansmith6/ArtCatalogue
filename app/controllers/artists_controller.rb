@@ -29,7 +29,7 @@ class ArtistsController < ApplicationController
     end
 
     def new
-        
+        @artist = Artist.new
     end
 
 
@@ -37,7 +37,7 @@ class ArtistsController < ApplicationController
 
     
     def create
-            @artist = Artist.create(artist_params)
+            @artist = Artist.save
         
     end
 
