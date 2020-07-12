@@ -7,10 +7,7 @@ class Post < ApplicationRecord
     accepts_nested_attributes_for :artist, reject_if: :all_blank
     accepts_nested_attributes_for :user
     has_many :likes, dependent: :destroy
-    #belongs_to :museum
-    #belongs_to :artwork_era
-    has_many :comments
-
+    
 
      
    

@@ -1,7 +1,8 @@
 class UsersController < ApplicationController
     
 def most_posts
-        @user = User.all.max_by {|user| user.posts.count}
+        @user = User.all.find.max_by {|user| user.posts.count}
+        
         render template: 'users/show'
         
     

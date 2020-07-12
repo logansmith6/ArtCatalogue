@@ -18,15 +18,12 @@ class PostsController < ApplicationController
 
     def show
          @post = Post.find(params[:id])
-         
     end
 
     def new
         @post = Post.new
     end
 
-    def edit
-    end 
 
     def create
         
@@ -38,10 +35,18 @@ class PostsController < ApplicationController
             render :show
         else
             redirect_to '/posts/new'
+        end  
+    end
+
+    def destroy
+        @post = Post.find(params[:id])
+        if current_user.id == @post.user_id
+            @post.destroy
+            redirect_to '/posts'
+            flash[:error] = "Post was deleted."
+        else
+            flash[:error] = "You cannot delete others' posts!"
         end
-
-
-            
     end
 
     private

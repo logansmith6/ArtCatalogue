@@ -11,6 +11,9 @@
 <% else %>
   <%= button_to 'Like', post_likes_path(@post), method: :post %>
 <% end %>
+<div style="color:red">   
+<%= link_to "Delete", @post, method: :delete, data: {confirm: "You sure?"}, class: 'label alert'%>
+</div>
 </pre>
 
   

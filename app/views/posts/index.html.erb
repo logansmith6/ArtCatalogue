@@ -12,7 +12,7 @@
 
 <% @posts.each do |post| %>
     
-    Title: <%=  post.title %>
+    Title: <%=  link_to post.title, post_path(post) %>
     <% if !params[:artist_id]%>
     Artist: <%= link_to post.artist.name, artist_path(post.artist)%>
     <% end %>
@@ -21,6 +21,7 @@
     <%= image_tag(post.image, style: 'width:100%')%>
     </div>
     <%= post.likes.count %> <%= (post.likes.count) == 1 ? 'Like' : 'Likes'%>
+    
     <% pre_like = post.likes.find { |like| like.user_id == current_user.id} %>
     <% if pre_like %>
     <%= button_to 'Unlike', post_like_path(post, pre_like), method: :delete %>
