@@ -19,8 +19,10 @@
 
 <% @posts.each do |post| %>
     
-    Title: <%=  link_to post.title, artist_post_path(params[:artist_id], post.id) %>
-    <% if !params[:artist_id]%>
+    <% if params[:artist_id] %>
+    Title: <%=  link_to post.title,  artist_post_path(params[:artist_id], post.id)%>
+      <% else %>
+    Title: <%= link_to post.title, post_path(post)%>
     Artist: <%= link_to post.artist.name, artist_path(post.artist)%>
     <% end %>
     Posted by: <%= link_to post.user.full_name, user_path(post.user)%>
