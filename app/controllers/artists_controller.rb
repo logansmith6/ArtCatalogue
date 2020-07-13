@@ -20,6 +20,10 @@ class ArtistsController < ApplicationController
     end
 
     def index
+        if params[:name]
+            @artist = Artist.find_by_id(params[:id])
+
+        end
         @artists = Artist.all
     end 
 

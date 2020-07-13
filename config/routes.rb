@@ -13,18 +13,17 @@ Rails.application.routes.draw do
   
   
   resources :users, only: [:show, :new, :create, :index] do
-    resources :posts, only: [:show, :index, :new, :create, :destroy] do
-      resources :likes 
-    end 
+    resources :posts, only: [:show, :index, :new, :create, :destroy] 
     collection do
       get :most_posts
     end 
   end
+  
 
   resources :posts do
     resources :likes
   end 
-  #resources :artists
+  
   resources :artists, only: [:show, :new, :create, :index] do
     resources :posts, only: [:show, :index, :new, :create] do
       resources :likes 

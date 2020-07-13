@@ -3,19 +3,17 @@ class LikesController < ApplicationController
     before_action :get_like, only: [:destroy]
 
     def create
-        if like_once?  
-        else
+        if !like_once?  
             @post.likes.create(user_id: current_user.id)
             redirect_to post_path(@post)
         end 
     end
 
     def destroy
-        if !(like_once?)
-        else
+        if like_once?
             @like.destroy
-        end
-        redirect_to post_path(@post)
+            redirect_to post_path(@post)
+        end  
     end
 
    
