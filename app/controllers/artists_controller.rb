@@ -21,10 +21,11 @@ class ArtistsController < ApplicationController
 
     def index
         if params[:name]
-            @artist = Artist.find_by_id(params[:id])
-
+            @artists = Artist.where('name LIKE ?', "%#{params[:name]}")
+        else 
+            @artists = Artist.all
         end
-        @artists = Artist.all
+        
     end 
 
     def show
