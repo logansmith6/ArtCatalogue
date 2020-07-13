@@ -17,7 +17,11 @@ class PostsController < ApplicationController
     end 
 
     def show
-         @post = Post.find(params[:id])
+        if params[:artist_id]
+            @post = Post.find(params[:id])
+        else
+            @post = Post.find(params[:id])
+        end
     end
 
     def new
