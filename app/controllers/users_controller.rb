@@ -1,8 +1,9 @@
 class UsersController < ApplicationController
     
-def most_posts   
-    @user =  User.all.max_by {|user| user.posts.count}
-    render template: 'users/show'
+def most_posts
+    @user = User.find_by
+    render :show
+    
 end
  # GET /signup
  def new
@@ -24,6 +25,7 @@ end
 
 def show
     @user = User.find_by_id(params[:id])
+    
 end 
 
 def index

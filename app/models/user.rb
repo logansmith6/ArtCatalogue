@@ -5,5 +5,7 @@ class User < ApplicationRecord
    validates :email, format: { with: URI::MailTo::EMAIL_REGEXP } 
    has_many :posts
    has_many :artists, through: :posts
+   #has many likes through posts
+   
    
 end
