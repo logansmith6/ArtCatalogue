@@ -1,10 +1,11 @@
 class UsersController < ApplicationController
     
-def most_posts
-    @user = User.find_by
-    render :show
-    
-end
+    def most_posts
+        @user = User.ordered.first
+         
+         render :show
+     end
+
  # GET /signup
  def new
  end 

@@ -1,16 +1,11 @@
 class PostsController < ApplicationController
 
-    helper_method :current_user
+   
     before_action :if_logged_in
     
-    def most_posts
-        
-    end
-
-
     def index
         if params[:artist_id]
-            @posts = Artist.find(params[:artist_id]).posts
+            @posts = Post.where(artist: params[:artist_id])
         elsif 
             @posts = Post.all
         end 
