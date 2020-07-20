@@ -4,6 +4,12 @@
 
 <h1> Artists </h1>
 
+<% if flash[:alert]%>
+    <p style="color:red">
+     <%= flash[:alert] %>
+     </p>
+    <% end %>
+
 
 <% @artists.each do |artist| %>
     

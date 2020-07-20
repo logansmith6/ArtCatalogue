@@ -3,6 +3,11 @@ class ArtistsController < ApplicationController
     def index
         if params[:name]
             @artists = Artist.where('name LIKE ?', "%#{params[:name]}")
+            if @artists == []
+                flash[:alert] = 'No results.'
+                @artists = Artist.all
+                
+            end
         else 
             @artists = Artist.all
         end

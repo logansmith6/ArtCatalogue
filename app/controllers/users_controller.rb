@@ -1,8 +1,7 @@
 class UsersController < ApplicationController
     
     def most_posts
-        @user = User.ordered.first
-         
+        @user = User.most_posts
          render :show
      end
 
