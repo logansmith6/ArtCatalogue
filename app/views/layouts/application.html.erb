@@ -28,12 +28,19 @@
       <li><a href="/login">Login</a></li>
       <li><a href="/login">Signup</a></li>
    <% end %>
-   </ul>
-   </div>
-   </nav>
+         </ul>
+        </div>
+      </nav>
    </header>
-    
+
+    <section class="container">
+      <div id="flash">
+        <% flash.each do |key, value|%>
+          <div class="flash alert <%=alert_class(key)%>"><%= value %></div>
+          <% end %>
+      </div>
       
     <%= yield %>
+    </section>
   </body>
 </html>

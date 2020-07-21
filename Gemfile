@@ -21,7 +21,8 @@ gem 'jbuilder', '~> 2.7'
 
 
 
-# gems i added
+# gems I added
+
 
 gem 'bcrypt'
 
