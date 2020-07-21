@@ -8,7 +8,7 @@ class User < ApplicationRecord
    has_many :likes, through: :posts
 
    scope :ordered, -> {order('posts_count DESC')}
-   scope :most_posts, -> {where('posts_count').first}
+   scope :most_posts, -> {order('posts_count DESC').first}
    
    
 end

@@ -8,12 +8,4 @@ class Post < ApplicationRecord
     accepts_nested_attributes_for :user
     has_many :likes, dependent: :destroy
 
-     
-    
-    
-
-     
-   
-
-    
 end

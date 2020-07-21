@@ -1,9 +1,8 @@
 class SessionsController < ApplicationController 
     
     def new
-        
     end
-
+    #if user tries to sign in with facebook, their info is saved. if user already exists, they are logged in. if they do not, a new user is created.
     def create
         if auth_hash = request.env["omniauth.auth"]
             #logging in via facebook
@@ -37,7 +36,7 @@ class SessionsController < ApplicationController
     
 
     
-
+    #session is deleted, user is redirected to login
     def destroy
         session.delete :user_id
         redirect_to '/login'
@@ -46,7 +45,7 @@ class SessionsController < ApplicationController
     private
     
     
-
+    #auth method requests info from omniauth (facebook)
     def auth
         request.env['omniauth.auth']
     end
