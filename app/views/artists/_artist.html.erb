@@ -1,5 +1,5 @@
 <pre>
- <a href="/posts">Browse Paintings</a>      <a href="/posts/new">Post a Painting</a>     <a href="/users">Users</a>     <a href="/artists">Artists</a>     <a href="/logout">Logout</a>
+ <a><%= link_to 'My Posts', user_path(current_user)%></a>      <a href="/posts">Browse Paintings</a>      <a href="/posts/new">Post a Painting</a>     <a href="/users">Users</a>     <a href="/artists">Artists</a>     <a href="/logout">Logout</a>
   <h1><strong><%=@artist.name%></h1>
   <br>
   <h3><%=link_to 'Browse Paintings', artist_posts_path(@artist.id)%> </strong></h3>
