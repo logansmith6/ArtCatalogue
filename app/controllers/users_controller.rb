@@ -18,7 +18,7 @@ class UsersController < ApplicationController
             redirect_to '/login'
      else
          redirect_to '/signup'
-         flash[:error] = "invalid login info"
+         flash[:error] = "Please try again."
      end 
    
     end

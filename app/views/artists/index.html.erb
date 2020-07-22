@@ -1,14 +1,5 @@
 <pre>
- <a><%= link_to 'My Posts', user_path(current_user)%></a>      <a href="/posts">Browse Paintings</a>      <a href="/posts/new">Post a Painting</a>     <a href="/users">Users</a>     <a href="/artists">Artists</a>     <a href="/logout">Logout</a>
-
-
 <h1> Artists </h1>
-
-<% if flash[:alert]%>
-    <p style="color:red">
-     <%= flash[:alert] %>
-     </p>
-    <% end %>
 
 
 <% @artists.each do |artist| %>
@@ -16,8 +7,6 @@
     Name: <%= link_to artist.name, artist_path(artist) %>
     
     <br>
-        
-    
 <%end%>
-    </pre>
+</pre>
 

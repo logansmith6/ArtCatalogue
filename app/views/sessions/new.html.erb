@@ -11,12 +11,6 @@
     <%= label_tag "Password:" %>
     <%= password_field_tag :password %>
     <br>
-    <% if flash[:alert]%>
-    <p style="color:red">
-     <%= flash[:alert] %>
-     </p>
-    <% end %>
-
     <%= submit_tag "Login"%>
 <% end %>
 <%= link_to('Log in with Facebook!', '/auth/facebook') %>

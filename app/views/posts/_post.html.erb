@@ -1,20 +1,32 @@
-<pre>
-  <h1><b><%= @post.title %></b></h1><h3> <%=@post.artist.name%>
-    <div style="width:300px; height:auto; margin-left:auto; margin-right:auto;">
-    <%= link_to image_tag(@post.image, style:'width:100%'), post_path(@post)%>
-    </div>
+<div class="post">
+  <div class="thumbnail">
+    <div class="caption">
+  <h1><%= @post.title %></b></h1><h3> <%=@post.artist.name%></h1>
+  <br>
+    <%= @post.likes.count %> <%= (@post.likes.count) == 1 ? 'Like' : 'Likes'%>
 
-<%= @post.likes.count %> <%= (@post.likes.count) == 1 ? 'Like' : 'Likes'%>
+<br>
 <% pre_like = @post.likes.find { |like| like.user_id == current_user.id} %>
+<br>
 
   <% if pre_like %>
-    <%= button_to 'Unlike', post_like_path(@post, pre_like), method: :delete %>
+    <%= button_to 'Unlike', post_like_path(@post, pre_like), method: :delete, class: 'btn btn-default' %>
   <% else %>
-     <%= button_to 'Like', post_likes_path(@post), method: :post %>
+     <%= button_to 'Like', post_likes_path(@post), method: :post, class: 'btn btn-default' %>
   <% end %>
-    <div style="color:red">   
-      <%= link_to "Delete", @post, method: :delete, data: {confirm: "You sure?"}, class: 'label alert'%>
+  <br>
+     <% if @post.user_id == current_user.id%> 
+        <%= link_to "Delete", @post, method: :delete, data: {confirm: "You sure?"}, class: 'btn btn-default'%>
+      <% end %>
+      </div>
     </div>
-</pre>
+  </div>
+
+  <div class="imageContainer", style="width:300px; height:auto;margin-right:auto;">
+    <br>
+    <%=  image_tag(@post.image, style:'width:200%')%>
+    </div>
+    
+
 
   

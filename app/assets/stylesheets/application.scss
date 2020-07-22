@@ -2,3 +2,31 @@
 @import "bootstrap";
 pre {text-align: center;}
 #wrapper { width: 1000px; margin: 0 auto; }
+
+.title-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+
+    h1 {
+        margin: 0;
+    }
+}
+
+.posts {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.post {
+    width: 30%;
+    min-width: 300px;
+}
+
+.imageContainer > img:hover {
+    
+    height: 100%;
+    width: 100%;
+  }

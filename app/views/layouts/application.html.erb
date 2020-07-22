@@ -15,18 +15,18 @@
     <nav class="navbar navbar-default">
       <div class="container-fluid">
         <div class="navbar-header">
-        <%=  link_to 'My Posts', user_path(current_user), class: "navbar-brand"%>
+        <%=  link_to 'Art Catalogue', root_path, class: "navbar-brand"%>
         </div>
   <ul class="nav navbar-nav navbar-right">
    <% if logged_in?%>
-      <li><a href="/posts">Browse Paintings</a></li>
+      <li><%= link_to 'My Posts', user_path(current_user)%></li>
       <li><a href="/posts/new">Post a Painting</a></li>
       <li><a href="/users">Users</a></li>
       <li><a href="/artists">Artists</a></li>
       <li><a href="/logout">Logout</a></li>
     <% else%>
       <li><a href="/login">Login</a></li>
-      <li><a href="/login">Signup</a></li>
+      <li><a href="/signup">Signup</a></li>
    <% end %>
          </ul>
         </div>

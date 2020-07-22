@@ -1,5 +1,5 @@
 class Post < ApplicationRecord
-    validates_presence_of :title
+    validates_presence_of :title, message: 'Title is required'
     validates_presence_of :image
     has_one_attached :image
     belongs_to :user, counter_cache: true

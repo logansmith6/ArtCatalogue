@@ -35,7 +35,7 @@ class PostsController < ApplicationController
         if @post.save
            render :show
         else
-            flash[:alert] = 'Fill in all boxes!'
+                flash[:alert] = 'Fill in all boxes!'
             redirect_to '/posts/new'
         end  
     end
