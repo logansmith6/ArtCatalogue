@@ -6,25 +6,20 @@
    </div>
    <% if params[:artist_id]%>
       by <%= Artist.find(params[:artist_id]).name%>
-      <%= @post.artist_id = Artist.find(params[:artist_id]).name%>
+      <% @post.artist_id = Artist.find(params[:artist_id]).name%>
     <% else %>
    <%= form.fields_for :artist, Artist.find_or_create_by(params[:artist_attributes]) do |artist|%>
-   <div class="field">
+   
       <%= artist.label :artist_name %>
       <%= artist.text_field :name, class: "form-control"%>
       
      <% end %>
      <% end%>
-   </div>
+  
    <div class="field">
      <%= form.label :image%>  
      <%= form.file_field :image%>
    </div>
-   <% if flash[:alert]%>
-    <p style="color:red">
-     <%= flash[:alert] %>
-     </p>
-    <% end %>
     <div class="actions">
      <%= form.submit class: "btn btn-primary"%>
    </div>
