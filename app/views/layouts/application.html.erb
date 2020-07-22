@@ -2,6 +2,7 @@
 <html>
   <head>
     <title>ArtCatalogue</title>
+    <%= favicon_link_tag asset_path('artcatalogue.PNG') %>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -36,7 +37,7 @@
     <section class="container">
       <div id="flash">
         <% flash.each do |key, value|%>
-          <div class="flash alert <%=alert_class(key)%>"><%= value %></div>
+          <div class="flash alert <%=alert_class(key)%>"><%= value %><br></div>
           <% end %>
       </div>
       
